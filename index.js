@@ -69,4 +69,40 @@ function 내함수(x) {
     // 가능하면 if문으로 typeof 사용하기, as문법은 타입에러 체크 x
     // <number> x = 옛날 as 문법
 }
-console.log(자릿수("1234"));
+function setNum(num) {
+    var arr = [];
+    for (var _i = 0, num_1 = num; _i < num_1.length; _i++) {
+        var i = num_1[_i];
+        if (typeof (i) === "string") {
+            arr.push(Number(i));
+        }
+        else {
+            arr.push(i);
+        }
+    }
+    return arr;
+}
+// console.log(setNum([1,2,"3","4", 5]));
+function LastPang(sam) {
+    if (typeof (sam.subject) === "object") {
+        return sam.subject[sam.subject.length - 1];
+    }
+    else if (typeof (sam.subject) === "string") {
+        return sam.subject;
+    }
+    else {
+        return "없음";
+    }
+}
+var 철수쌤 = { subject: 'math' };
+var 영희쌤 = { subject: ['science', 'english'] };
+var 민수쌤 = { subject: ['science', 'art', 'korean'] };
+console.log(LastPang(철수쌤));
+console.log(LastPang(영희쌤));
+console.log(LastPang(민수쌤));
+console.log(LastPang({ hello: 'hi' }));
+var 동물 = { name: "name", age: 20 };
+var 여친 = {
+    name: "은진"
+};
+var position = { x: 1, y: 1 };

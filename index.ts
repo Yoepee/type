@@ -90,4 +90,56 @@ function 내함수(x:string | number){
   // <number> x = 옛날 as 문법
 }
 
-console.log(자릿수("1234"))
+function setNum(num: (number | string)[]){
+  let arr:number[] = [];
+  for(let i of num){
+    if(typeof(i)==="string"){
+      arr.push(Number(i));
+    }
+    else{
+      arr.push(i);
+    }
+  }
+  return arr;
+}
+// console.log(setNum([1,2,"3","4", 5]));
+function LastPang(sam:{subject:string | string[]}):string{
+  if (typeof (sam.subject) === "object") {
+    return sam.subject[sam.subject.length - 1];
+  }
+  else if(typeof (sam.subject) === "string"){
+    return sam.subject;
+  }
+  else{
+    return "없음"
+  }
+}
+
+let 철수쌤 = { subject : 'math' }
+let 영희쌤 = { subject : ['science', 'english'] }
+let 민수쌤 = { subject : ['science', 'art', 'korean'] }
+
+console.log(LastPang(철수쌤));
+console.log(LastPang(영희쌤));
+console.log(LastPang(민수쌤));
+console.log(LastPang({ hello : 'hi' }));
+
+type 이상한 = string | number | undefined;
+type 방식 = {name: string, age:number};
+
+type PositionX = {x:number};
+type PositionY = {y:number};
+
+type NewPosition = PositionX & PositionY;
+
+let 동물 :방식 = {name :"name", age:20};
+
+type Girlfriend = {
+  readonly name : string
+}
+
+const 여친:Girlfriend = {
+  name : "은진"
+}
+
+let position:NewPosition = {x:1, y:1}
