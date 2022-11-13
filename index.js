@@ -97,12 +97,65 @@ function LastPang(sam) {
 var 철수쌤 = { subject: 'math' };
 var 영희쌤 = { subject: ['science', 'english'] };
 var 민수쌤 = { subject: ['science', 'art', 'korean'] };
-console.log(LastPang(철수쌤));
-console.log(LastPang(영희쌤));
-console.log(LastPang(민수쌤));
-console.log(LastPang({ hello: 'hi' }));
 var 동물 = { name: "name", age: 20 };
 var 여친 = {
     name: "은진"
 };
-var position = { x: 1, y: 1 };
+var position = { x: 1, y: 1, z: 1 };
+var test2 = {
+    color: "red",
+    size: 10,
+    position: [1, 2, 3]
+};
+var jame = {
+    name: "kim",
+    phone: 123,
+    email: "kk",
+    adult: true
+};
+var 바보 = "바보";
+var 접니다;
+접니다 = "솔로";
+function 함수2(a) {
+    return 1;
+}
+함수2("hello");
+function 짱깬(input) {
+    return [];
+}
+짱깬("가위");
+var 자료 = {
+    name: "kim"
+};
+// object value값을 그대로 타입으로 지정해줌
+// object의 속성들에 모두 readonly를 붙여줌
+function 내함수2(a) {
+}
+내함수2(자료.name);
+var 함수3 = function () {
+    return 1;
+};
+var 회원정보 = {
+    name: "kim",
+    age: 30,
+    plusOne: function (a) {
+        return a + 1;
+    },
+    changeName: function () {
+        console.log("안녕");
+    }
+};
+var cutZero = function (a) {
+    if (a[0] === "0") {
+        a.slice(0, 1);
+    }
+    return a;
+};
+var removeDash = function (a) {
+    a = a.replace(/-/gi, "");
+    return parseInt(a);
+};
+var 만들함수 = function (a, b, c) {
+    console.log(c(b(a)));
+};
+만들함수("010-1111-2222", cutZero, removeDash);

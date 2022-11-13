@@ -119,16 +119,16 @@ let 철수쌤 = { subject : 'math' }
 let 영희쌤 = { subject : ['science', 'english'] }
 let 민수쌤 = { subject : ['science', 'art', 'korean'] }
 
-console.log(LastPang(철수쌤));
-console.log(LastPang(영희쌤));
-console.log(LastPang(민수쌤));
-console.log(LastPang({ hello : 'hi' }));
+// console.log(LastPang(철수쌤));
+// console.log(LastPang(영희쌤));
+// console.log(LastPang(민수쌤));
+// console.log(LastPang({ hello : 'hi' }));
 
 type 이상한 = string | number | undefined;
 type 방식 = {name: string, age:number};
 
-type PositionX = {x:number};
-type PositionY = {y:number};
+type PositionX = {x:number, y:number};
+type PositionY = {y:number, z:number};
 
 type NewPosition = PositionX & PositionY;
 
@@ -142,4 +142,109 @@ const 여친:Girlfriend = {
   name : "은진"
 }
 
-let position:NewPosition = {x:1, y:1}
+let position:NewPosition = {x:1, y:1, z:1}
+
+type 색깔 = {
+  color?:string, 
+  size:number, 
+  readonly position :number[]
+};
+
+let test2:색깔 = {
+  color:"red",
+  size:10,
+  position:[1,2,3]
+}
+
+type user1 = {
+  name : string,
+  phone : number,
+  email: string
+}
+
+type Child = {
+  adult : boolean
+};
+
+type Check = user1&Child;
+let jame:Check = {
+  name:"kim",
+  phone:123,
+  email:"kk",
+  adult:true
+}
+let 바보 :string = "바보"
+
+let 접니다 :"대머리" | "솔로";
+접니다 = "솔로"
+
+function 함수2(a:"hello"):1|0{
+  return 1;
+}
+함수2("hello");
+type Rsp = ("가위"|"바위"|"보")
+
+function 짱깬(input:Rsp):Rsp[]{
+  return []
+}
+
+짱깬("가위");
+
+var 자료 = {
+  name:"kim"
+} as const
+// object value값을 그대로 타입으로 지정해줌
+// object의 속성들에 모두 readonly를 붙여줌
+
+function 내함수2(a:"kim"){
+
+}
+내함수2(자료.name);
+
+type 함수타입 = (a:string)=> number;
+
+const 함수3:함수타입= ()=>{
+  return 1;
+}
+type UserInfo = {
+  name:string,
+  age?:number,
+  plusOne(a:number):number,
+  changeName:()=>void
+}
+let 회원정보:UserInfo = {
+  name : "kim",
+  age: 30,
+  plusOne(a){
+    return a+1;
+  },
+  changeName: ()=>{
+    console.log("안녕");
+  }
+}
+// console.log(회원정보.plusOne(10));
+// console.log(회원정보.changeName);
+
+type Zero = (x:string)=>string;
+type Dash = (x:string)=>number;
+
+const cutZero:Zero = (a)=>{
+  if(a[0]==="0"){
+    a.slice(0,1);
+  }
+  return a;
+}
+
+const removeDash:Dash= (a)=>{
+  a = a.replace(/-/gi,"");
+  return parseInt(a);
+}
+// console.log(removeDash("01037912975"));
+// console.log(removeDash("010-3791-2975"));
+
+type Zzambong = (a:string, b:Zero, c:Dash)=>void;
+
+const 만들함수:Zzambong = function(a, b, c){
+  console.log(c(b(a)))
+};
+만들함수("010-1111-2222", cutZero, removeDash);
