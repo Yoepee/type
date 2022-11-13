@@ -119,16 +119,16 @@ let 철수쌤 = { subject : 'math' }
 let 영희쌤 = { subject : ['science', 'english'] }
 let 민수쌤 = { subject : ['science', 'art', 'korean'] }
 
-console.log(LastPang(철수쌤));
-console.log(LastPang(영희쌤));
-console.log(LastPang(민수쌤));
-console.log(LastPang({ hello : 'hi' }));
+// console.log(LastPang(철수쌤));
+// console.log(LastPang(영희쌤));
+// console.log(LastPang(민수쌤));
+// console.log(LastPang({ hello : 'hi' }));
 
 type 이상한 = string | number | undefined;
 type 방식 = {name: string, age:number};
 
-type PositionX = {x:number};
-type PositionY = {y:number};
+type PositionX = {x:number, y:number};
+type PositionY = {y:number, z:number};
 
 type NewPosition = PositionX & PositionY;
 
@@ -142,4 +142,36 @@ const 여친:Girlfriend = {
   name : "은진"
 }
 
-let position:NewPosition = {x:1, y:1}
+let position:NewPosition = {x:1, y:1, z:1}
+
+type 색깔 = {
+  color?:string, 
+  size:number, 
+  readonly position :number[]
+};
+
+let test2:색깔 = {
+  color:"red",
+  size:10,
+  position:[1,2,3]
+}
+
+type user1 = {
+  name : string,
+  phone : number,
+  email: string
+}
+
+type Child = {
+  adult : boolean
+};
+
+type Check = user1&Child;
+let jame:Check = {
+  name:"kim",
+  phone:123,
+  email:"kk",
+  adult:true
+}
+let 바보 :string = "바보"
+
