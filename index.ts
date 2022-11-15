@@ -248,3 +248,46 @@ const 만들함수:Zzambong = function(a, b, c){
   console.log(c(b(a)))
 };
 만들함수("010-1111-2222", cutZero, removeDash);
+
+let 제목 = document.querySelector("#title");
+// if(제목 != null)
+// if(제목 instanceof Element){
+if(제목?.innerHTML != undefined){
+  제목.innerHTML = "반가워요";
+}
+
+let 링크 = document.querySelector('.link');
+if(링크 instanceof HTMLAnchorElement){
+  링크.href = "https://kakao.com";
+}
+// 상세히 정의되어있음
+// HTMLHeadingElement
+// HTMLAnchorElement
+// HTMLButtonElement
+let 버튼 = document.querySelector("#button");
+  버튼?.addEventListener("click",()=>{
+    let 이미지 = document.querySelector("#image");
+    if(이미지 instanceof HTMLImageElement){
+      이미지.src = "new.jpg";
+    }
+  } )
+// if(버튼 instanceof HTMLButtonElement){
+//   버튼.addEventListener("click", ()=>{})
+// }
+let 네이버 = document.querySelectorAll(".naver");
+if(네이버 instanceof NodeList){
+  네이버.forEach((item)=>{
+    if(item instanceof HTMLAnchorElement){
+      item.href="https://kakao.com";
+    }
+  })
+}
+// for (let i = 0; i < 3; i++){
+//   let a = 네이버[i];
+//   if (a instanceof HTMLAnchorElement){
+//     a.href = 'https://kakao.com'
+//   }
+// } 
+// if(네이버 instanceof HTMLAnchorElement){
+//   네이버.href = "https://kakao.com";
+// }
