@@ -1,55 +1,55 @@
-let 이름:string = "김동엽";
-let 나이 : number = 27;
-let 출생지역 :string= "강릉";
+let 이름: string = "김동엽";
+let 나이: number = 27;
+let 출생지역: string = "강릉";
 
-let 노래:{제목:string, 가수:string|number} = {제목:"노래", 가수:"자이언티"};
+let 노래: { 제목: string, 가수: string | number } = { 제목: "노래", 가수: "자이언티" };
 
 type 오브젝트 = {
-  member : string[],
-  days : number,
-  started : boolean
+  member: string[],
+  days: number,
+  started: boolean
 }
 
-let 테스트 :오브젝트 =  {
-  member : ['kim', 'park'],
-  days : 30,
-  started : true,
+let 테스트: 오브젝트 = {
+  member: ['kim', 'park'],
+  days: 30,
+  started: true,
 }
 
-let user :string = "kim";
-let age : undefined | number = undefined;
-let married :boolean = false;
-let 철수 : (string | undefined | number | boolean)[] = [user, age, married];
+let user: string = "kim";
+let age: undefined | number = undefined;
+let married: boolean = false;
+let 철수: (string | undefined | number | boolean)[] = [user, age, married];
 
 type 학교타입 = {
-  score : (number | boolean)[],
-  teacher : string,
+  score: (number | boolean)[],
+  teacher: string,
   friend: string | (string[])
 }
 
-let 학교 : 학교타입 = {
-  score : [100, 97, 84],
-  teacher : 'Phil',
-  friend : 'John'
+let 학교: 학교타입 = {
+  score: [100, 97, 84],
+  teacher: 'Phil',
+  friend: 'John'
 }
 학교.score[4] = false;
-학교.friend = ['Lee' , 학교.teacher]
+학교.friend = ['Lee', 학교.teacher]
 
-function 함수(x? :number) : void {
-  if(x!==undefined){
-    console.log(x*2)
+function 함수(x?: number): void {
+  if (x !== undefined) {
+    console.log(x * 2)
   }
 }
 
-function 출력(이름?:string) : string{
-  if(이름 !== undefined){
+function 출력(이름?: string): string {
+  if (이름 !== undefined) {
     return `안녕하세요 ${이름}`
-  }else{
+  } else {
     return "이름이 없습니디"
   }
 }
 
-function 자릿수(숫자 :string | number) :number{
+function 자릿수(숫자: string | number): number {
   // let num:number = 0;
   // if(typeof(숫자)==="string"){
   //   num = 숫자.split("").length;
@@ -66,22 +66,22 @@ function 자릿수(숫자 :string | number) :number{
   return 숫자.toString().length;
 }
 
-function 결혼여부 (소득 :number, 집보유 : boolean, 매력점수:string) :string|void{
-  let num :number = 0;
-  if(매력점수 === "상"){
-    num+=100;
+function 결혼여부(소득: number, 집보유: boolean, 매력점수: string): string | void {
+  let num: number = 0;
+  if (매력점수 === "상") {
+    num += 100;
   }
-  if(집보유){
-    num+=500
+  if (집보유) {
+    num += 500
   }
-  num+=소득;
-  if(num>=600){
+  num += 소득;
+  if (num >= 600) {
     return "결혼가능"
   }
 }
 
-function 내함수(x:string | number){
-  let arr :number[] = [];
+function 내함수(x: string | number) {
+  let arr: number[] = [];
   arr[0] = x as number;
   // assertion 문법은 Narrowing 할때 씁니다.
   // 타입을 변경하는 문법이 아님.
@@ -90,34 +90,34 @@ function 내함수(x:string | number){
   // <number> x = 옛날 as 문법
 }
 
-function setNum(num: (number | string)[]){
-  let arr:number[] = [];
-  for(let i of num){
-    if(typeof(i)==="string"){
+function setNum(num: (number | string)[]) {
+  let arr: number[] = [];
+  for (let i of num) {
+    if (typeof (i) === "string") {
       arr.push(Number(i));
     }
-    else{
+    else {
       arr.push(i);
     }
   }
   return arr;
 }
 // console.log(setNum([1,2,"3","4", 5]));
-function LastPang(sam:{subject:string | string[]}):string{
+function LastPang(sam: { subject: string | string[] }): string {
   if (typeof (sam.subject) === "object") {
     return sam.subject[sam.subject.length - 1];
   }
-  else if(typeof (sam.subject) === "string"){
+  else if (typeof (sam.subject) === "string") {
     return sam.subject;
   }
-  else{
+  else {
     return "없음"
   }
 }
 
-let 철수쌤 = { subject : 'math' }
-let 영희쌤 = { subject : ['science', 'english'] }
-let 민수쌤 = { subject : ['science', 'art', 'korean'] }
+let 철수쌤 = { subject: 'math' }
+let 영희쌤 = { subject: ['science', 'english'] }
+let 민수쌤 = { subject: ['science', 'art', 'korean'] }
 
 // console.log(LastPang(철수쌤));
 // console.log(LastPang(영희쌤));
@@ -125,126 +125,126 @@ let 민수쌤 = { subject : ['science', 'art', 'korean'] }
 // console.log(LastPang({ hello : 'hi' }));
 
 type 이상한 = string | number | undefined;
-type 방식 = {name: string, age:number};
+type 방식 = { name: string, age: number };
 
-type PositionX = {x:number, y:number};
-type PositionY = {y:number, z:number};
+type PositionX = { x: number, y: number };
+type PositionY = { y: number, z: number };
 
 type NewPosition = PositionX & PositionY;
 
-let 동물 :방식 = {name :"name", age:20};
+let 동물: 방식 = { name: "name", age: 20 };
 
 type Girlfriend = {
-  readonly name : string
+  readonly name: string
 }
 
-const 여친:Girlfriend = {
-  name : "은진"
+const 여친: Girlfriend = {
+  name: "은진"
 }
 
-let position:NewPosition = {x:1, y:1, z:1}
+let position: NewPosition = { x: 1, y: 1, z: 1 }
 
 type 색깔 = {
-  color?:string, 
-  size:number, 
-  readonly position :number[]
+  color?: string,
+  size: number,
+  readonly position: number[]
 };
 
-let test2:색깔 = {
-  color:"red",
-  size:10,
-  position:[1,2,3]
+let test2: 색깔 = {
+  color: "red",
+  size: 10,
+  position: [1, 2, 3]
 }
 
 type user1 = {
-  name : string,
-  phone : number,
+  name: string,
+  phone: number,
   email: string
 }
 
 type Child = {
-  adult : boolean
+  adult: boolean
 };
 
-type Check = user1&Child;
-let jame:Check = {
-  name:"kim",
-  phone:123,
-  email:"kk",
-  adult:true
+type Check = user1 & Child;
+let jame: Check = {
+  name: "kim",
+  phone: 123,
+  email: "kk",
+  adult: true
 }
-let 바보 :string = "바보"
+let 바보: string = "바보"
 
-let 접니다 :"대머리" | "솔로";
+let 접니다: "대머리" | "솔로";
 접니다 = "솔로"
 
-function 함수2(a:"hello"):1|0{
+function 함수2(a: "hello"): 1 | 0 {
   return 1;
 }
 함수2("hello");
-type Rsp = ("가위"|"바위"|"보")
+type Rsp = ("가위" | "바위" | "보")
 
-function 짱깬(input:Rsp):Rsp[]{
+function 짱깬(input: Rsp): Rsp[] {
   return []
 }
 
 짱깬("가위");
 
 var 자료 = {
-  name:"kim"
+  name: "kim"
 } as const
 // object value값을 그대로 타입으로 지정해줌
 // object의 속성들에 모두 readonly를 붙여줌
 
-function 내함수2(a:"kim"){
+function 내함수2(a: "kim") {
 
 }
 내함수2(자료.name);
 
-type 함수타입 = (a:string)=> number;
+type 함수타입 = (a: string) => number;
 
-const 함수3:함수타입= ()=>{
+const 함수3: 함수타입 = () => {
   return 1;
 }
 type UserInfo = {
-  name:string,
-  age?:number,
-  plusOne(a:number):number,
-  changeName:()=>void
+  name: string,
+  age?: number,
+  plusOne(a: number): number,
+  changeName: () => void
 }
-let 회원정보:UserInfo = {
-  name : "kim",
+let 회원정보: UserInfo = {
+  name: "kim",
   age: 30,
-  plusOne(a){
-    return a+1;
+  plusOne(a) {
+    return a + 1;
   },
-  changeName: ()=>{
+  changeName: () => {
     console.log("안녕");
   }
 }
 // console.log(회원정보.plusOne(10));
 // console.log(회원정보.changeName);
 
-type Zero = (x:string)=>string;
-type Dash = (x:string)=>number;
+type Zero = (x: string) => string;
+type Dash = (x: string) => number;
 
-const cutZero:Zero = (a)=>{
-  if(a[0]==="0"){
-    a.slice(0,1);
+const cutZero: Zero = (a) => {
+  if (a[0] === "0") {
+    a.slice(0, 1);
   }
   return a;
 }
 
-const removeDash:Dash= (a)=>{
-  a = a.replace(/-/gi,"");
+const removeDash: Dash = (a) => {
+  a = a.replace(/-/gi, "");
   return parseInt(a);
 }
 // console.log(removeDash("01037912975"));
 // console.log(removeDash("010-3791-2975"));
 
-type Zzambong = (a:string, b:Zero, c:Dash)=>void;
+type Zzambong = (a: string, b: Zero, c: Dash) => void;
 
-const 만들함수:Zzambong = function(a, b, c){
+const 만들함수: Zzambong = function (a, b, c) {
   console.log(c(b(a)))
 };
 만들함수("010-1111-2222", cutZero, removeDash);
@@ -252,12 +252,12 @@ const 만들함수:Zzambong = function(a, b, c){
 let 제목 = document.querySelector("#title");
 // if(제목 != null)
 // if(제목 instanceof Element){
-if(제목?.innerHTML != undefined){
+if (제목?.innerHTML != undefined) {
   제목.innerHTML = "반가워요";
 }
 
 let 링크 = document.querySelector('.link');
-if(링크 instanceof HTMLAnchorElement){
+if (링크 instanceof HTMLAnchorElement) {
   링크.href = "https://kakao.com";
 }
 // 상세히 정의되어있음
@@ -265,20 +265,20 @@ if(링크 instanceof HTMLAnchorElement){
 // HTMLAnchorElement
 // HTMLButtonElement
 let 버튼 = document.querySelector("#button");
-  버튼?.addEventListener("click",()=>{
-    let 이미지 = document.querySelector("#image");
-    if(이미지 instanceof HTMLImageElement){
-      이미지.src = "new.jpg";
-    }
-  } )
+버튼?.addEventListener("click", () => {
+  let 이미지 = document.querySelector("#image");
+  if (이미지 instanceof HTMLImageElement) {
+    이미지.src = "new.jpg";
+  }
+})
 // if(버튼 instanceof HTMLButtonElement){
 //   버튼.addEventListener("click", ()=>{})
 // }
 let 네이버 = document.querySelectorAll(".naver");
-if(네이버 instanceof NodeList){
-  네이버.forEach((item)=>{
-    if(item instanceof HTMLAnchorElement){
-      item.href="https://kakao.com";
+if (네이버 instanceof NodeList) {
+  네이버.forEach((item) => {
+    if (item instanceof HTMLAnchorElement) {
+      item.href = "https://kakao.com";
     }
   })
 }
@@ -291,3 +291,111 @@ if(네이버 instanceof NodeList){
 // if(네이버 instanceof HTMLAnchorElement){
 //   네이버.href = "https://kakao.com";
 // }
+
+
+class Person {
+  name: string;
+  data: number = 0;
+  constructor(a: string) {
+    this.name = a;
+  }
+  함수(a: string) {
+    console.log("안녕" + a);
+  }
+}
+let 사람1 = new Person("kim");
+let 사람2 = new Person("park");
+
+console.log(사람1)
+console.log(사람2)
+사람1.함수("안녕");
+
+class Car {
+  model: string;
+  price: number;
+  constructor(a: string, b: number) {
+    this.model = a;
+    this.price = b;
+  }
+  tax(): number {
+    return this.price * 0.1;
+  }
+}
+
+let car1 = new Car("sonata", 3000);
+console.log(car1);
+console.log(car1.tax());
+
+class Word {
+  num: number[] = [];
+  str: string[] = [];
+  constructor(...a: (string | number)[]) {
+    //   a.forEach((x)=>{
+    //     if(typeof(x)==="number"){
+    //       this.num.push(x);
+    //     }else{
+    //       this.str.push(x);
+    //     }
+    //   })
+    for (let x of a) {
+      if (typeof (x) === "number") {
+        this.num.push(x);
+      } else {
+        this.str.push(x);
+      }
+    }
+  }
+}
+let obj = new Word('kim', 3, 5, 'park', 'moon');
+console.log(obj.num);
+console.log(obj.str);
+
+type Square = {color:string, width:number}
+interface Square2{color:string, width:number}
+
+let 네모 :Square2= {color: "red", width:100}
+interface Student{name:string};
+interface Student{score:number};
+interface Sam extends Student{ age:number};
+
+
+let 학생 :Student={name:"kim", score:10};
+let 선생 :Sam = {name:"kim", age:20, score:10};
+
+interface Product {
+  brand:string,
+  serialNumber:number,
+  model:string[]
+}
+interface Cart {
+  product:string,
+  price:number
+}
+
+let 상품:Product = { brand : 'Samsung', serialNumber : 1360, model : ['TV', 'phone'] }
+
+let 장바구니:Cart[] = [ { product : '청소기', price : 7000 }, { product : '삼다수', price : 800 } ] 
+
+interface UseCard extends Cart{
+  card:false
+}
+let 물건:UseCard = { product : '청소기', price : 7000, card : false }
+
+interface Carculation{
+  // plus(a:number,b:number):number;
+  // minus(a:number,b:number):number;
+  plus : (a:number, b:number) => number,
+  minus : (a:number, b:number) => number
+}
+
+let 계산:Carculation = {
+  plus(a,b){
+    return a+b; 
+  },
+  minus(a,b){
+    if(a>=b)
+      return a-b;
+    else
+      return b-a;
+  }
+}

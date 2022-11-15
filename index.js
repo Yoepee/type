@@ -200,3 +200,81 @@ if (네이버 instanceof NodeList) {
 // if(네이버 instanceof HTMLAnchorElement){
 //   네이버.href = "https://kakao.com";
 // }
+var Person = /** @class */ (function () {
+    function Person(a) {
+        this.data = 0;
+        this.name = a;
+    }
+    Person.prototype.함수 = function (a) {
+        console.log("안녕" + a);
+    };
+    return Person;
+}());
+var 사람1 = new Person("kim");
+var 사람2 = new Person("park");
+console.log(사람1);
+console.log(사람2);
+사람1.함수("안녕");
+var Car = /** @class */ (function () {
+    function Car(a, b) {
+        this.model = a;
+        this.price = b;
+    }
+    Car.prototype.tax = function () {
+        return this.price * 0.1;
+    };
+    return Car;
+}());
+var car1 = new Car("sonata", 3000);
+console.log(car1);
+console.log(car1.tax());
+var Word = /** @class */ (function () {
+    function Word() {
+        var a = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            a[_i] = arguments[_i];
+        }
+        this.num = [];
+        this.str = [];
+        //   a.forEach((x)=>{
+        //     if(typeof(x)==="number"){
+        //       this.num.push(x);
+        //     }else{
+        //       this.str.push(x);
+        //     }
+        //   })
+        for (var _a = 0, a_1 = a; _a < a_1.length; _a++) {
+            var x = a_1[_a];
+            if (typeof (x) === "number") {
+                this.num.push(x);
+            }
+            else {
+                this.str.push(x);
+            }
+        }
+    }
+    return Word;
+}());
+var obj = new Word('kim', 3, 5, 'park', 'moon');
+console.log(obj.num);
+console.log(obj.str);
+var 네모 = { color: "red", width: 100 };
+;
+;
+;
+var 학생 = { name: "kim", score: 10 };
+var 선생 = { name: "kim", age: 20, score: 10 };
+var 상품 = { brand: 'Samsung', serialNumber: 1360, model: ['TV', 'phone'] };
+var 장바구니 = [{ product: '청소기', price: 7000 }, { product: '삼다수', price: 800 }];
+var 물건 = { product: '청소기', price: 7000, card: false };
+var 계산 = {
+    plus: function (a, b) {
+        return a + b;
+    },
+    minus: function (a, b) {
+        if (a >= b)
+            return a - b;
+        else
+            return b - a;
+    }
+};
