@@ -399,3 +399,141 @@ let 계산:Carculation = {
       return b-a;
   }
 }
+
+let {student, ages} = {student:true, ages:20};
+let 오브젝트 = {student:true, ages:20};
+
+function 함수4({student, ages}:{student:boolean, ages:number}){
+  console.log(student, ages)
+}
+함수4(오브젝트);
+
+function 함수5(...a:number[]):number{
+  a.sort((a,b)=>b-a);
+  return a[0];
+}
+interface Fsix{
+  user:string,
+  comment:number[],
+  admin:boolean
+}
+function 함수6({user,comment,admin}:Fsix):void{
+  console.log(user, comment, admin)
+}
+함수6( { user : 'kim', comment : [3,5,4], admin : false } )
+
+function 함수7([a,b,c]:(string|number|boolean)[]):void{
+  console.log(a,b,c);
+}
+
+함수7( [40, 'wine', false] );
+
+function 함수8(a : string | undefined){
+  if(a && typeof a === "string"){
+
+  }
+}
+
+type Fish = {swim:string};
+type Bird = {fly:string};
+
+function 함수9(animal : Fish | Bird){
+  if("swim" in animal){
+    // 요소 in 오브젝트
+    animal.swim
+  }else{
+
+  }
+}
+// 오브젝트 instanceof 부모클래스
+// let 날짜 = new Date();
+// if(날짜 instanceof Date){
+
+// }
+type Car2 = {
+  wheel : "4개",
+  color : string
+}
+type Bike = {
+  wheel : "2개",
+  color : string
+}
+
+function 함수10(x:Car2|Bike){
+  if(x.wheel === "4개"){
+
+  }
+}
+// never타입은 대부분 사용 x
+// never타입이 에러가 나는 이유정도만 알고있으면 좋음
+function 함수11():never{
+  // return이 없어야함
+  // endpoint가 없어야 함
+  // 모든함수는 return undefind를 기본값으로 가짐
+  // throw new Error(); // 강제로 함수 중단, 강제 에러
+  while(true){
+    // 무한루프라 끝나지않음
+  }
+}
+// never타입이 등장하는 경우
+// 뭔가 이상한 narrowing
+// 변수할당식 함수 표현식
+
+function 함수12(param:string){
+  if(typeof param == "string"){
+    console.log(param);
+  }else{
+    console.log(param);//타입이 never임
+  }
+}
+
+let 함수13 = function(){
+  throw new Error();
+}
+
+class User2{
+  // 디펄트
+  // public name = "kim";
+  // 외부접근 x private
+  // private name = "kim";
+  name :string
+  private familyName :string = "kim"
+  constructor(a:string){
+    this.name=a + this.familyName;
+  }
+  이름변경(){
+    this.familyName="park";
+  }
+}
+
+let 유저1 = new User2("minsoo");
+// 유저1.name = "안녕"
+유저1.이름변경()
+console.log(유저1)
+
+class Person1{
+  constructor(public name :string, public age:number){
+    name;
+    age;
+  }
+}
+let 자식 = new Person1("kim",10);
+console.log(자식)
+
+// protected = private + 확장
+// 클래스끼리 공유하고 싶다
+// static 부모에서만 쓰고싶을 때
+// static 은 public, private, protected 랑 같이 사용가능
+class User3{
+  // protected x = 10;
+  static x = 10;
+  y=20;
+}
+
+class NewUser extends User3{
+  doThis(){
+    this.y = 20;
+  }
+}
+ 
+let 유저2 = new NewUser();
