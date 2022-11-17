@@ -1,3 +1,18 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var 이름 = "김동엽";
 var 나이 = 27;
 var 출생지역 = "강릉";
@@ -278,3 +293,126 @@ var 계산 = {
             return b - a;
     }
 };
+var _a = { student: true, ages: 20 }, student = _a.student, ages = _a.ages;
+var 오브젝트 = { student: true, ages: 20 };
+function 함수4(_a) {
+    var student = _a.student, ages = _a.ages;
+    console.log(student, ages);
+}
+함수4(오브젝트);
+function 함수5() {
+    var a = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        a[_i] = arguments[_i];
+    }
+    a.sort(function (a, b) { return b - a; });
+    return a[0];
+}
+function 함수6(_a) {
+    var user = _a.user, comment = _a.comment, admin = _a.admin;
+    console.log(user, comment, admin);
+}
+함수6({ user: 'kim', comment: [3, 5, 4], admin: false });
+function 함수7(_a) {
+    var a = _a[0], b = _a[1], c = _a[2];
+    console.log(a, b, c);
+}
+함수7([40, 'wine', false]);
+function 함수8(a) {
+    if (a && typeof a === "string") {
+    }
+}
+function 함수9(animal) {
+    if ("swim" in animal) {
+        // 요소 in 오브젝트
+        animal.swim;
+    }
+    else {
+    }
+}
+function 함수10(x) {
+    if (x.wheel === "4개") {
+    }
+}
+// never타입은 대부분 사용 x
+// never타입이 에러가 나는 이유정도만 알고있으면 좋음
+function 함수11() {
+    // return이 없어야함
+    // endpoint가 없어야 함
+    // 모든함수는 return undefind를 기본값으로 가짐
+    // throw new Error(); // 강제로 함수 중단, 강제 에러
+    while (true) {
+        // 무한루프라 끝나지않음
+    }
+}
+// never타입이 등장하는 경우
+// 뭔가 이상한 narrowing
+// 변수할당식 함수 표현식
+function 함수12(param) {
+    if (typeof param == "string") {
+        console.log(param);
+    }
+    else {
+        console.log(param); //타입이 never임
+    }
+}
+var 함수13 = function () {
+    throw new Error();
+};
+var User2 = /** @class */ (function () {
+    function User2(a) {
+        this.familyName = "kim";
+        this.name = a + this.familyName;
+    }
+    User2.prototype.이름변경 = function () {
+        this.familyName = "park";
+    };
+    return User2;
+}());
+var 유저1 = new User2("minsoo");
+// 유저1.name = "안녕"
+유저1.이름변경();
+console.log(유저1);
+var Person1 = /** @class */ (function () {
+    function Person1(name, age) {
+        this.name = name;
+        this.age = age;
+        name;
+        age;
+    }
+    return Person1;
+}());
+var 자식 = new Person1("kim", 10);
+console.log(자식);
+// protected = private + 확장
+// 클래스끼리 공유하고 싶다
+// static 부모에서만 쓰고싶을 때
+// static 은 public, private, protected 랑 같이 사용가능
+var User3 = /** @class */ (function () {
+    function User3() {
+        this.y = 20;
+    }
+    // protected x = 10;
+    User3.x = 10;
+    return User3;
+}());
+var NewUser = /** @class */ (function (_super) {
+    __extends(NewUser, _super);
+    function NewUser() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    NewUser.prototype.doThis = function () {
+        this.y = 20;
+    };
+    return NewUser;
+}(User3));
+var 유저2 = new NewUser();
+// 스테틱은 본인자체적으로 사용하기 위해 동작
+var User = /** @class */ (function () {
+    function User() {
+        this.z = 30; //외부에서 접근이 제한되나 확장된 개념이라 상속된 클래스에서도 사용가능
+    }
+    User.x = 10; // 외부에서 접근하지못하고 수정도 불가, User자체에서만 사용가능
+    User.y = 20; // 외부에서 접근 가능하며, User자체에서만 사용
+    return User;
+}());
