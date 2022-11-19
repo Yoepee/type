@@ -408,11 +408,26 @@ var NewUser = /** @class */ (function (_super) {
 }(User3));
 var 유저2 = new NewUser();
 // 스테틱은 본인자체적으로 사용하기 위해 동작
-var User = /** @class */ (function () {
-    function User() {
+var User4 = /** @class */ (function () {
+    function User4() {
         this.z = 30; //외부에서 접근이 제한되나 확장된 개념이라 상속된 클래스에서도 사용가능
     }
-    User.x = 10; // 외부에서 접근하지못하고 수정도 불가, User자체에서만 사용가능
-    User.y = 20; // 외부에서 접근 가능하며, User자체에서만 사용
-    return User;
+    User4.x = 10; // 외부에서 접근하지못하고 수정도 불가, User자체에서만 사용가능
+    User4.y = 20; // 외부에서 접근 가능하며, User자체에서만 사용
+    return User4;
 }());
+var User5 = /** @class */ (function () {
+    function User5() {
+    }
+    User5.prototype.addOne = function (a) {
+        return x;
+    };
+    User5.prototype.printX = function () {
+    };
+    User5.x = 10;
+    User5.y = 20;
+    return User5;
+}());
+User5.addOne(3); //이렇게 하면 x가 3 더해져야함
+User5.addOne(4); //이렇게 하면 x가 4 더해져야함
+User5.printX(); //이렇게 하면 콘솔창에 x값이 출력되어야함

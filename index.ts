@@ -538,8 +538,23 @@ class NewUser extends User3{
  
 let 유저2 = new NewUser();
 // 스테틱은 본인자체적으로 사용하기 위해 동작
-class User {
+class User4 {
   private static x = 10; // 외부에서 접근하지못하고 수정도 불가, User자체에서만 사용가능
   public static y = 20; // 외부에서 접근 가능하며, User자체에서만 사용
   protected z = 30; //외부에서 접근이 제한되나 확장된 개념이라 상속된 클래스에서도 사용가능
 }
+
+class User5 {
+  private static x = 10;
+  public static y = 20;
+  
+  addOne(a:number){
+    return x;
+  }
+  printX(){
+
+  }
+}
+User5.addOne(3) //이렇게 하면 x가 3 더해져야함
+User5.addOne(4) //이렇게 하면 x가 4 더해져야함
+User5.printX()  //이렇게 하면 콘솔창에 x값이 출력되어야함
