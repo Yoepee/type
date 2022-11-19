@@ -419,20 +419,16 @@ var User4 = /** @class */ (function () {
 var User5 = /** @class */ (function () {
     function User5() {
     }
-    User5.prototype.addOne = function (a) {
+    User5.addOne = function (a) {
         this.x = this.x + a;
     };
-    User5.prototype.printX = function () {
+    User5.printX = function () {
         console.log(this.x);
     };
     User5.x = 10;
     User5.y = 20;
     return User5;
 }());
-var test3 = new User5;
-test3.addOne(3);
-test3.addOne(4);
-test3.printX();
-// User5.addOne(3) //이렇게 하면 x가 3 더해져야함
-// User5.addOne(4) //이렇게 하면 x가 4 더해져야함
-// User5.printX()  //이렇게 하면 콘솔창에 x값이 출력되어야함
+User5.addOne(3); //이렇게 하면 x가 3 더해져야함
+User5.addOne(4); //이렇게 하면 x가 4 더해져야함
+User5.printX(); //이렇게 하면 콘솔창에 x값이 출력되어야함
