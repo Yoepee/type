@@ -545,16 +545,23 @@ class User4 {
 }
 
 class User5 {
-  private static x = 10;
+  private static x =10;
   public static y = 20;
-  
+  constructor(){
+    
+  }
   addOne(a:number){
-    return x;
+    this.x = this.x+a;
   }
   printX(){
-
+    console.log(this.x);
   }
 }
-User5.addOne(3) //이렇게 하면 x가 3 더해져야함
-User5.addOne(4) //이렇게 하면 x가 4 더해져야함
-User5.printX()  //이렇게 하면 콘솔창에 x값이 출력되어야함
+
+let test3 = new User5;
+test3.addOne(3);
+test3.addOne(4);
+test3.printX();
+// User5.addOne(3) //이렇게 하면 x가 3 더해져야함
+// User5.addOne(4) //이렇게 하면 x가 4 더해져야함
+// User5.printX()  //이렇게 하면 콘솔창에 x값이 출력되어야함
