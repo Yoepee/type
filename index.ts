@@ -551,7 +551,7 @@ class User5 {
   static addOne(a:number){
     this.x = this.x+a;
   }
-  static printX(){
+  static printX():void{
     console.log(this.x);
   }
 }
@@ -559,3 +559,31 @@ class User5 {
 User5.addOne(3) //이렇게 하면 x가 3 더해져야함
 User5.addOne(4) //이렇게 하면 x가 4 더해져야함
 User5.printX()  //이렇게 하면 콘솔창에 x값이 출력되어야함
+
+class Square3{
+  public w1:number;
+  public h1:number;
+  public c1:string;
+  constructor(width:number, height:number, color:string){
+    this.w1 = width;
+    this.h1 = height;
+    this.c1 = color;
+  }
+  public draw():void{
+    let id = document.getElementById("drawPlace");
+    console.log(id);
+    if(id instanceof HTMLDivElement){
+      id.innerHTML+=`<div style="width:${this.w1}px; height:${this.h1}px; background:${this.c1};top:${Math.random()*10000%400}px; left:${Math.random()*10000%400}px;position:absolute;"></div>`
+    }
+  }
+}
+
+let 네모2 = new Square3(30, 30, 'red');
+네모2.draw()
+네모2.draw()
+네모2.draw()
+네모2.draw()
+네모2.draw()
+네모2.draw()
+네모2.draw()
+네모2.draw()

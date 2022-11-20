@@ -432,3 +432,27 @@ var User5 = /** @class */ (function () {
 User5.addOne(3); //이렇게 하면 x가 3 더해져야함
 User5.addOne(4); //이렇게 하면 x가 4 더해져야함
 User5.printX(); //이렇게 하면 콘솔창에 x값이 출력되어야함
+var Square3 = /** @class */ (function () {
+    function Square3(width, height, color) {
+        this.w1 = width;
+        this.h1 = height;
+        this.c1 = color;
+    }
+    Square3.prototype.draw = function () {
+        var id = document.getElementById("drawPlace");
+        console.log(id);
+        if (id instanceof HTMLDivElement) {
+            id.innerHTML += "<div style=\"width:".concat(this.w1, "px; height:").concat(this.h1, "px; background:").concat(this.c1, ";top:").concat(Math.random() * 10000 % 400, "px; left:").concat(Math.random() * 10000 % 400, "px;position:absolute;\"></div>");
+        }
+    };
+    return Square3;
+}());
+var 네모2 = new Square3(30, 30, 'red');
+네모2.draw();
+네모2.draw();
+네모2.draw();
+네모2.draw();
+네모2.draw();
+네모2.draw();
+네모2.draw();
+네모2.draw();
