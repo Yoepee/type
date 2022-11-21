@@ -789,3 +789,38 @@ let obj2:Esang = {
     }
   }
 }
+
+console.log(Object.keys(obj3));
+
+interface Person2{
+  age:number,
+  name:string
+}
+
+type PersonKeys = keyof Person2;
+let aaaa:PersonKeys ="name"
+
+type TypeChanger<MaType> ={
+  [key in keyof MaType]:string
+}
+
+//type NewType = TypeChanger<Fsix>
+type NewType = TypeChanger<Square3>
+
+type Bus = {
+  color : string,
+  model : boolean,
+  price : number
+}
+
+type TypeChanger2<TestType> ={
+  [key in keyof TestType]:string|number
+}
+
+type NewType2 = TypeChanger2<Bus>
+
+let newbus:NewType2 = {
+  color:20,
+  model:"cc",
+  price:2000
+}
