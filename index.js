@@ -1,4 +1,3 @@
-"use strict";
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -14,7 +13,9 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-Object.defineProperty(exports, "__esModule", { value: true });
+// 타입도 import 가능
+// html에서 script를 불러와서 사용했지만, 이렇게 사용하면 이름겹침 버그 감소
+///<reference path="./a"/> //옛날 임폴트 문법
 var 이름 = "김동엽";
 var 나이 = 27;
 var 출생지역 = "강릉";
@@ -465,3 +466,13 @@ var 네모2 = new Square3(30, 30, 'red');
 네모2.draw();
 네모2.draw();
 네모2.draw();
+var test3 = function (a) { console.log(a); };
+test3({ a: 10 });
+var NameDog;
+(function (NameDog) {
+    ;
+})(NameDog || (NameDog = {}));
+// interface Dog2 { name : string };
+var dog1 = 'bark';
+var dog2 = { name: 'paw' };
+export {};

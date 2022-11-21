@@ -1,5 +1,7 @@
-import {이름2, 나이2} from "./a";
-
+import {이름2, 나이2, 네임스페이스, Car3, Bike3, InOb} from "./a";
+// 타입도 import 가능
+// html에서 script를 불러와서 사용했지만, 이렇게 사용하면 이름겹침 버그 감소
+///<reference path="./a"/> //옛날 임폴트 문법
 let 이름: string = "김동엽";
 let 나이: number = 27;
 let 출생지역: string = "강릉";
@@ -608,3 +610,17 @@ let 네모2 = new Square3(30, 30, 'red');
 네모2.draw()
 네모2.draw()
 네모2.draw()
+
+let test3 : InOb = function(a){console.log(a)}
+
+test3({a:10})
+
+namespace NameDog{
+  export interface Dog2 { name : string };
+}
+
+type Dog2 = string;
+// interface Dog2 { name : string };
+
+let dog1 :Dog2 = 'bark';
+let dog2 :NameDog.Dog2 = { name : 'paw' }
