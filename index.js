@@ -13,6 +13,15 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
 // 타입도 import 가능
 // html에서 script를 불러와서 사용했지만, 이렇게 사용하면 이름겹침 버그 감소
 ///<reference path="./a"/> //옛날 임폴트 문법
@@ -475,4 +484,67 @@ var NameDog;
 // interface Dog2 { name : string };
 var dog1 = 'bark';
 var dog2 = { name: 'paw' };
+function 함수20(x) {
+    return x[0];
+}
+var a = 함수20([4, 2]);
+function 함수21(x) {
+    // return x.length;
+    console.log(x.length);
+}
+var b = 함수21(["hello", "park"]);
+var data = '{"name" : "dog", "age" : 1 }';
+function changeAnimal(a) {
+    return JSON.parse(a);
+}
+console.log(changeAnimal(data));
+var Person3 = /** @class */ (function () {
+    function Person3(a) {
+        this.name = a;
+    }
+    return Person3;
+}());
+var aa = new Person3('어쩌구');
+aa.name; //any 타입이 되었넹 
+// tuple type으로 동일한 문법으로 타입생성하기 (깐깐하게보자)
+var arr = [1, 2, 3];
+var arr2 = __spreadArray([4, 5], arr, true);
+var 음식 = ["동서녹차", 4000, true];
+var arr3 = ['동서녹차', 4000, true, false, true, true, false, true];
+// tuple + rest 파라미터
+function 함수22() {
+    var a = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        a[_i] = arguments[_i];
+    }
+    console.log(a);
+}
+함수22("aaa", true, 1, 2, 3, 4);
+// tuple + rest 파라미터
+function 함수23() {
+    var a = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        a[_i] = arguments[_i];
+    }
+    var stringAry = [];
+    var numberAry = [];
+    for (var _a = 0, a_2 = a; _a < a_2.length; _a++) {
+        var value = a_2[_a];
+        if (typeof value === "string") {
+            stringAry.push(value);
+        }
+        else {
+            numberAry.push(value);
+        }
+    }
+    // a.forEach((b)=>{
+    //   if (typeof a === 'string') {
+    //     result[0].push(b)
+    //   } else {
+    //     result[1].push(b)
+    //   }
+    // })
+    return [stringAry, numberAry];
+}
+console.log(함수23('b', 5, 6, 8, 'a'));
 export {};

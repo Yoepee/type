@@ -624,3 +624,83 @@ type Dog2 = string;
 
 let dog1 :Dog2 = 'bark';
 let dog2 :NameDog.Dog2 = { name : 'paw' }
+
+function 함수20<MyType2>(x:MyType2[]):MyType2{
+  return x[0]
+}
+
+let a = 함수20<number>([4,2])
+
+interface LengthCheck{
+  length:number;
+}
+
+function 함수21<MyType extends LengthCheck>(x:MyType){
+  
+  // return x.length;
+  console.log(x.length)
+}
+
+let b = 함수21<string[]>(["hello","park"]);
+
+interface Animal2{
+  name:string;
+  age:number;
+}
+
+let data = '{"name" : "dog", "age" : 1 }'
+
+function changeAnimal<TypeAnimal>(a:string):TypeAnimal{
+  return JSON.parse(a);
+}
+
+console.log(changeAnimal(data));
+
+class Person3<MyType3> {
+  name:MyType3;
+  constructor(a:MyType3){
+    this.name = a;
+  }
+}
+let aa = new Person3<string>('어쩌구');
+aa.name //any 타입이 되었넹 
+
+// tuple type으로 동일한 문법으로 타입생성하기 (깐깐하게보자)
+let arr = [1,2,3];
+let arr2 :[number, number, ...number[]] = [4,5,...arr];
+
+type food = [string, number, boolean]
+
+let 음식 = ["동서녹차", 4000, true];
+
+let arr3:[string, number, ...boolean[]] =  ['동서녹차', 4000, true, false, true, true, false, true]
+
+// tuple + rest 파라미터
+function 함수22(...a:[string,boolean,...(string|number)[]]){
+  console.log(a);
+}
+
+함수22("aaa",true,1,2,3,4)
+
+// tuple + rest 파라미터
+function 함수23(...a:(string|number)[]):[string[],number[]]{
+  let stringAry :string[] = [];
+  let numberAry :number[] = [];
+  for(let value of a){
+    if(typeof value === "string"){
+      stringAry.push(value);
+    }else{
+      numberAry.push(value);
+    }
+  }
+  // a.forEach((b)=>{
+  //   if (typeof a === 'string') {
+  //     result[0].push(b)
+  //   } else {
+  //     result[1].push(b)
+  //   }
+  // })
+  return  [ stringAry, numberAry ] 
+}
+
+console.log(함수23('b', 5, 6, 8, 'a')); 
