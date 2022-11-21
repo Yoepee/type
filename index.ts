@@ -704,3 +704,88 @@ function 함수23(...a:(string|number)[]):[string[],number[]]{
 }
 
 console.log(함수23('b', 5, 6, 8, 'a')); 
+
+// declare let a :number; 
+//변수 재정의가 가능한 declare문법
+
+// ts -> ts파일로 변수 쓰려면 import export 사용
+// ts 특징
+// 모든 ts파일은 ambient module 글로벌 모듈
+// export 하나 적어두면 ambient 식으로 적용 x -> 로컬모듈로 변경
+// ex) export {}
+// 로컬 모듈에서 글로벌 모듈로 사용하고 싶을때 declare global 사용하여 적용
+// declare global{ 
+//  type Dog = string  
+//}
+
+
+// interface는 오브젝트의 타입지정으로 사용 가능한데
+// 추가적인 기능으로 class의 타입 확인도 가능
+// implements 를 이용하여 interface에 있는 속성이 다 포함되어 있는지 확인가능
+// 타입 체크용도이지 타입할당용도 x
+
+// interface CarType {
+//   model : string,
+//   price : number
+// }
+
+// class Car implements CarType {
+//   model : string;
+//   price : number = 1000;
+//   constructor(a :string){
+//     this.model = a
+//   }
+// }
+// let 붕붕이 = new Car('morning');
+
+interface AllString {
+  [아무거나:string]:string
+  // [key:string]:string
+}
+// 모든속성에 string지정
+
+// 자기자신을 속성으로 지정
+interface MyType4 {
+  "font-size": MyType4 | number
+}
+
+let css:MyType4={
+  "font-size":{
+    "font-size":{
+      "font-size":14
+    }
+  }
+}
+
+interface Molaseo {
+  [key:string]:string|number;
+}
+
+let obj3:Molaseo = {
+  model : 'k5',
+  brand : 'kia',
+  price : 6000,
+  year : 2030,
+  date : '6월',
+  percent : '5%',
+  dealer : '김차장',
+}
+
+interface Esang {
+  "font-size":number;
+  [key:string]:Esang|number;
+}
+
+// interface FirstEsang{
+//   [key:string]:Esang|number|FirstEsang
+// }
+
+let obj2:Esang = {
+  'font-size' : 10,
+  'secondary' : {
+    'font-size' : 12,
+    'third' : {
+      'font-size' : 14
+    }
+  }
+}
