@@ -858,3 +858,7 @@ type 파라미터추출<T> = T extends ((x:infer R)=> any)? R : any
 
 type dd=파라미터추출<(x :number) => void> //이러면 number가 이 자리에 남음
 type cc= 파라미터추출<(x :string) => void> //이러면 string이 이 자리에 남음
+
+let abc:Age8 = 20;
+
+let 이름5:string = "김";

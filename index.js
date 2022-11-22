@@ -592,4 +592,6 @@ var age3;
 var age4;
 var age5;
 var age6;
+var abc = 20;
+var 이름5 = "김";
 export {};

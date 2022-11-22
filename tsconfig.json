@@ -3,8 +3,11 @@
     "target":"es5",
     "module":"ES2015",
     "noImplicitAny": true,
-    "strictNullChecks": true
+    "strictNullChecks": true,
     // strict:true;
+    "declaration": true,
+    // 여기에 폴더있으면 이곳에있는 변수는 글로벌하게 사용가능
+    // "typeRoots":["./types"]
   }
 }
 
