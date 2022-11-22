@@ -575,4 +575,21 @@ var obj2 = {
         }
     }
 };
+console.log(Object.keys(obj3));
+var aaaa = "name";
+var newbus = {
+    color: 20,
+    model: "cc",
+    price: 2000
+};
+var newbus2 = {
+    color: 20,
+    model: 10,
+    price: 2000
+};
+var age2 = 10;
+var age3;
+var age4;
+var age5;
+var age6;
 export {};

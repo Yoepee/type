@@ -817,10 +817,44 @@ type TypeChanger2<TestType> ={
   [key in keyof TestType]:string|number
 }
 
+type TypeChanger3<TestType, T> ={
+  [key in keyof TestType]: T extends string?T:number
+}
 type NewType2 = TypeChanger2<Bus>
-
+type NewType3 = TypeChanger3<Bus, Number>
 let newbus:NewType2 = {
   color:20,
   model:"cc",
   price:2000
 }
+
+let newbus2:NewType3 = {
+  color:20,
+  model:10,
+  price:2000
+}
+
+type Age<T> = T extends string?T:unknown;
+
+let age2 :Age<number> = 10;
+
+// type FirstItem<T> = T extends LengthCheck? T : any
+type FirstItem<T> = T extends any[]? T : any
+let age3 :FirstItem<string[]>;
+let age4 :FirstItem<number>;
+// 왼쪽 에서 추출하는 infer
+// type 타입추출<T> = T extends (infer R)[]? R : any
+type 타입추출<T> = T extends (()=> infer R)? R : any
+// type a = 타입추출<string[]>
+type a = 타입추출<()=>void>
+type b = ReturnType<()=>void>
+
+type Age7<T> = T extends [string, ...any]? T[0] : unknown
+
+let age5 :Age7<[string, number]>;
+let age6 :Age7<[boolean, number]>; 
+
+type 파라미터추출<T> = T extends ((x:infer R)=> any)? R : any
+
+type dd=파라미터추출<(x :number) => void> //이러면 number가 이 자리에 남음
+type cc= 파라미터추출<(x :string) => void> //이러면 string이 이 자리에 남음
